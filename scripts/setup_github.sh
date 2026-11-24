@@ -6,9 +6,9 @@
 set -euo pipefail
 
 # ---- EDITAR: utilizadores GitHub de cada elemento -------------------------
-LEONARDO="utilizador-github-do-leonardo"
-ERICO="utilizador-github-do-erico"
-MARTIM="utilizador-github-do-martim"
+LEONARDO="leonardocardoso2022192-dotcom"
+ERICO="TRAFULHA8"
+MARTIM="fbaxyr8"
 # ---------------------------------------------------------------------------
 
 REPO=$(gh repo view --json nameWithOwner -q .nameWithOwner)
