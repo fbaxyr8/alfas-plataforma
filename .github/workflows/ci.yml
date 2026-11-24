@@ -1,0 +1,69 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  backend:
+    name: Backend (flake8 + pytest)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - run: flake8 .
+      - run: pytest -q
+
+  database:
+    name: Base de dados (MySQL 8)
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: alfas
+        ports: ["3306:3306"]
+        options: >-
+          --health-cmd="mysqladmin ping -proot"
+          --health-interval=10s --health-timeout=5s --health-retries=10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Criar esquema e dados iniciais
+        run: |
+          if [ ! -f database/schema.sql ]; then
+            echo "database/schema.sql ainda não existe – passo ignorado."
+            exit 0
+          fi
+          mysql -h 127.0.0.1 -uroot -proot alfas < database/schema.sql
+          if [ -f database/seed.sql ]; then
+            mysql -h 127.0.0.1 -uroot -proot alfas < database/seed.sql
+          fi
+          mysql -h 127.0.0.1 -uroot -proot alfas -e "SHOW TABLES;"
+
+  frontend:
+    name: Frontend (lint + build)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Lint e build (só quando o projeto React existir)
+        run: |
+          if [ ! -f frontend/package.json ]; then
+            echo "frontend/package.json ainda não existe – passo ignorado."
+            exit 0
+          fi
+          cd frontend
+          npm ci
+          npm run lint --if-present
+          npm run build
