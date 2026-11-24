@@ -13,7 +13,7 @@ As US_A001 a US_A013 foram dadas pelo cliente; as US_A014 a US_A016 são as user
 | [US_A007](#us_a007) | Dicionário de Dados | 3 | 3 | Martim Ferreira | Relatório, Anexo A |
 | [US_A008](#us_a008) | Fluxograma do UC Registar Utilizador | 4 | 2 | Martim Ferreira | docs/modelos/fig09, fig10 |
 | [US_A009](#us_a009) | Métricas de progresso de aprendizagem | 3 | 3 | Martim Ferreira | Relatório, Tabela 9 |
-| [US_A010](#us_a010) | Apresentação da sprint review | 2 | 3 | Leonardo Cardoso | docs/sprint-A/ALFAS-Sprint-Review-A.pptx |
+| [US_A010](#us_a010) | Apresentação da sprint review | 2 | 3 | Leonardo Cardoso | docs/sprint-A/ALFAS-Sprint-Review-A.pdf |
 | [US_A011](#us_a011) | GitHub Projects e issues | 1 | 3 | Leonardo Cardoso | GitHub Projects + scripts/setup_github.sh |
 | [US_A012](#us_a012) | GitHub Actions | 3 | 3 | Erico Veloso | .github/workflows/ci.yml |
 | [US_A013](#us_a013) | Relatório da sprint | 3 | 5 | Leonardo Cardoso | docs/sprint-A/ (relatório) |
@@ -189,7 +189,7 @@ Critérios de aceitação:
 - Prioridade: 2 – necessário
 - Estimativa: 3 SP
 - Responsável: Leonardo Cardoso
-- Artefacto: docs/sprint-A/ALFAS-Sprint-Review-A.pptx
+- Artefacto: docs/sprint-A/ALFAS-Sprint-Review-A.pdf
 
 Critérios de aceitação:
 

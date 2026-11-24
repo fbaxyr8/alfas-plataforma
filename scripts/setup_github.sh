@@ -7,7 +7,7 @@ set -euo pipefail
 
 # ---- EDITAR: utilizadores GitHub de cada elemento -------------------------
 LEONARDO="leonardocardoso2022192-dotcom"
-ERICO="TRAFULHA8"
+ERICO="silvadiana2004-arch"
 MARTIM="fbaxyr8"
 # ---------------------------------------------------------------------------
 
